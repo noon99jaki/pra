@@ -1,0 +1,111 @@
+2012.2.12
+dont normalize initial distributions
+			result = new MapID(seeds, 1.0 );/// seeds.size());
+TODO:
+=memory efficiency (20G is not enough to run 2-2(30)
+test functional restriction in exploration
+black light
+
+
+add efficient RWR baseline
+
+#show #paths explored/added
+*goodness measure for backward rw needs to be different
+*group the const features
+  prefer short paths 
+*remove normalization from PRA
+
+
+2012.2.17
+3+2!=5? 
+// we don't have support when doing concatenation
+// so we use hit to normalize accuracy instead
+// let's go one step further to use backward rw of bad nodes
+
+*use this accuracy=sum(good)/sum(selected) to all places?
+  it is already done
+  >get support for cat
+
+2012.2.16
+restrict the types of z nodes?
+modify induction?
+
+
+2012.2.15
+make acc method perfect
+  look at 2-1, 2-2
+  run 3-2
+  
+
+2012.2.12
+*the accuracies are too optimistic, too few query.bad_
+  not much we can do about it... except for the X paths
+    
+
+induce z features by accuracy
+  -added features are not useful
+
+induce z features by MI
+
+induce z features by micro-gradient
+
+induce z features by macro-gradient
+  :( bad performance if gradient is correct 
+
+2012.2.3
+threshold based bf induction? (#features is hard to control)
+
+
+compare micro/macro back prop
+#change backward path edge directions?
+use Y rws to induce Z<--Y paths
+
+>do 2-1 experiments first, then move to 3-2 
+
+2012.2.3
+
+*one graph, multiple predictions
+
+*dont load explore in PRA
+*min_feature_support is renamed to min_feature_hit
+*use negative feedback
+functional restriction
+
+#cache RW at lexicalized path piece level
+#cache RW results, thus avoid loading graphs
+
+2011.6.30
+merge the learners?
+  LearnerPRA->Learner
+  LearnerRank->IFunction
+
+remove irrelevant nodes to save memory?
+  public void subSampling(Query q)
+  -->MAP evaluation is wrong ... 
+  MAP for Test() is ok
+
+2009.6.16 rank function
+  should we put it in *ERGragh, ETGraph, or #learner?
+
+
+2009.6.15 dealing with time first
+add time stamp to relations?
+  -inefficient?
+  -no use for real application?
+grow the ER graph?
+  -complex process
+  +clear
+  
+  
+2009.6.14 graph
+major operations on graph
+for PRA
+ - expand path trees, and get distributions
+for PageRank
+ - get transition matrix?
+ - do multiplication
+
+*decided to unify the graph structures
+  * prefer seperating type level and entity level graph for clarity
+
+			

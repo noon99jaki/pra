@@ -1,0 +1,79 @@
+<project name="ni" default="build" basedir=".">
+    <description>Build file for Ni's project</description>
+  <property name="src" location="src"/>
+  <property name="javadoc" location="javadoc"/>
+  <property name="build" location="class"/>
+  <property name="dist"  location="dist"/>  
+  <property name="lib"     value="lib"/>
+	
+  <path id="classpath">
+      <!-- <fileset dir="${lib.dir}" includes="*.jar"/> -->
+      <fileset dir="${lib}" includes="m3rd-20060420.jar"/>
+      
+  </path>
+	
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+    <mkdir dir="${lib}"/>
+    <mkdir dir="${dist}"/>
+  </target>
+
+  <target name="build-clean" depends="clean,build"  description="compile the source from scratch"/>
+
+  <target name="build" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"	deprecation="on" debug="on" classpathref="classpath">
+       <!-- compilerarg value="-Xlint:unchecked"/ -->
+    </javac>
+  </target>
+
+  <target name="all" depends="build,javadoc"
+        description="compile the source, build the javadoc and cp to web server" >
+  <copy todir=".">
+    <fileset dir="${javadoc}"/>
+  </copy>
+  </target>
+
+  <target name="dist" depends="build"  description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}"/>
+    <mkdir dir="${dist}/lib"/>
+    <!-- Put everything in ${build} into the secondstring-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/lib/figleaf-${DSTAMP}.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean" description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete dir="${javadoc}"/>
+  </target>
+
+  <target name="javadoc" description="rebuild java docs">
+    <delete dir="${javadoc}"/>    
+    <mkdir dir="${javadoc}"/>
+    <javadoc sourcepath="${src}" 	destdir="${javadoc}" 
+    	packagenames="edu/cmu/lti/** edu/cmu/pra/**"/>
+  </target>
+
+			
+	<target name="pack-PRA" depends="build" description="Jar">
+		<jar destfile="${dist}/pra-${DSTAMP}.jar"
+			basedir="${build}"
+      includes="edu/cmu/lti/** edu/cmu/pra/**"
+		/>
+	</target>
+
+	<target name="pack-PRA-src" depends="build" description="Jar">
+		<jar destfile="${dist}/pra-src-${DSTAMP}.jar">
+	    <fileset dir="${build}"	includes="edu/cmu/lti/** edu/cmu/pra/**"/>
+	    <fileset dir="${src}"	includes="edu/cmu/lti/** edu/cmu/pra/**"/>
+	    <fileset dir="" includes="build.xml"/>			
+		</jar>
+	</target>	
+		
+</project>

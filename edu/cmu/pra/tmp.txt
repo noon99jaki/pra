@@ -1,0 +1,15 @@
+java -cp C:/work/workspace/nis-java-code/class edu.cmu.pra.SmallJobs indexGraph ./graphs/NELL165/ edges
+
+java -cp C:/work/workspace/nis-java-code/class edu.cmu.pra.SmallJobs createQueries ./graphs/NELL165/ ./queries/ true false
+
+
+java -cp C:/work/workspace/nis-java-code/class edu.cmu.pra.LearnerPRA
+
+java -Xms16G -Xmx16G -cp ~/code_java/ni/class edu.cmu.pra.LearnerPRA
+
+java -cp C:/work/workspace/nis-java-code/class edu.cmu.pra.SmallJobs batchLearnerPRA ./selected_relations
+
+./graphs/NELL165/edge_types
+
+
+
