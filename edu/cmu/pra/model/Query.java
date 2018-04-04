@@ -18,6 +18,18 @@ public class Query implements IGetIntByStr, Serializable, IGetStrByStr {
 	public String name_ = null;
 	public int time_ = -1;
 	//public boolean reach_target_;
+
+	/*
+	When we try to predict the existence of an edge in graph, we need to first remove that edge from the graph.
+	Otherwise it is cheating. 
+
+	blocked_node_ helps to identify such edges and their reversed edges. For example, to block the following edges
+		PersonGender(c$bob,  c$male)
+		GenderPerson(c$bob, c$male)
+	we specify
+		blocked_node_=c$bob which comes from the first field (blocked_field=0) in query
+		target_relation=PersonGender
+	*/
 	public int blocked_node_=-1;	// the node that leasds to the answer
 	public MapID result=null;
 	
