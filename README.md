@@ -1,5 +1,35 @@
 # Repository for the Path-Ranking Algorithm
+This repository contains the code used for the following papers:
++ [Relational retrieval using a combination of path-constrained random walks](https://noon99jaki.github.io/publication/2010/2010.ML.PRA.pdf)
++ [Random Walk Inference and Learning in A Large Scale Knowledge Base](https://noon99jaki.github.io/publication/2011/2011.emnlp.paper.pdf)
++ [Learning relational features with backward random walks](https://noon99jaki.github.io/publication/2015.acl.pdf)
 
+If you use this code or results in your research, and wish to cite as appropriate:
+```
+@Article{lao2010pra,
+  author="Lao, Ni
+  and Cohen, William W.",
+  title="Relational retrieval using a combination of path-constrained random walks",
+  journal="Machine Learning",
+  year="2010",
+  month="Oct",
+  day="01",
+  volume="81",
+  number="1",
+  pages="53--67",
+  issn="1573-0565"
+}
+@inproceedings{lao2011kb,
+  title={Random walk inference and learning in a large scale knowledge base},
+  author={Lao, Ni and Mitchell, Tom and Cohen, William W},
+  booktitle={Proceedings of the Conference on Empirical Methods in Natural Language Processing},
+  pages={529--539},
+  year={2011},
+  organization={Association for Computational Linguistics}
+}
+```
+
+## Instructions
 Compiled jar file can be found at http://www.cs.cmu.edu/~nlao/data/pra-src-20140421.jar
 Data files can be found at http://www.cs.cmu.edu/~nlao/data/
 
