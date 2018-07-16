@@ -54,6 +54,12 @@ public class Query implements IGetIntByStr, Serializable, IGetStrByStr {
 		//clearStatistics();
 	}
 	public void clear(int num_fields) {
+		// When clearing a query, we should be clearing
+		// The seeds as well; however, this appears to increase the running time, and
+		// test and train tasks are already handling the creations of queries correctly.
+		// Predict appears to be resolved by just instantiating a new query for each line. 
+		// leaving this line commented out for now.
+		//seeds_.clear();
 		seeds_.reset(num_fields);
 		good_.clear();
 		clearFeatures();

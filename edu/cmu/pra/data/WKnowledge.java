@@ -181,6 +181,8 @@ public class WKnowledge {
 				FSystem.die("unknown format=" + format);
 			}
 		}
+		// potential resource leak. Ensure that we flush and close
+		FFile.close(file);
 	}
 
 	

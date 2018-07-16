@@ -38,6 +38,11 @@ public class CTag {
 		, Tri // take x^3: 0,1,8,27,64,...th negative samples
 		, poly // take x^a
 		, Sqr1k, sqr1k, sqr, tri
+		, none // do not generate negatives
+		// None is a new option to not select any negatives from CWA,
+		// and just use known negatives. This is intended to be used
+		// with given_negative_samples set to true
+
 	}
 
 	public static enum LossMode {
