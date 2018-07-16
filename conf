@@ -42,6 +42,12 @@ train_samples=./queriesR_train/<target_relation>
 test_samples=./queriesR_test/<target_relation>
 	# data file used for test
 
+createQueries_max_relation_count=100000
+	# max number of edges for a relation during query creation
+	
+createQueries_min_relation_count=10
+	# min number of edges for a relation during query creation
+
 
 ##################### edu.cmu.pra.LearnerPRA
 target_relation=worksfor
@@ -90,7 +96,7 @@ negative_mode=Sqr
 	, Sqr		// take x^2: 0,1,4,9,16,25,...th negative samples
 	,Tri	// take x^3: 0,1,8,27,64,125,...th negative samples
 	,poly	// take x^a:
-	,expX	// take a^x
+	,none // add none
 negative_weight=20
 	# the weight shared by all negative samples
 

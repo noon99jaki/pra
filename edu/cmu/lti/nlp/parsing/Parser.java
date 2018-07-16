@@ -17,7 +17,9 @@ import edu.cmu.lti.util.html.HtmlPage;
 import edu.cmu.lti.util.run.StopWatch;
 import edu.cmu.lti.util.system.FSystem;
 import edu.cmu.lti.util.text.FString;
-import edu.cmu.nlsa.nlsa.AParsing;
+
+// missing dependency
+//import edu.cmu.nlsa.nlsa.AParsing;
 
 public abstract class Parser implements ISynxParseTaggedSent, IServer{
 	public enum Task {
@@ -135,7 +137,7 @@ public abstract class Parser implements ISynxParseTaggedSent, IServer{
 	public HtmlPage thNEI =null;
 	protected BufferedWriter bwDbg=null;
 	public double test() {
-		HtmlPage th = new HtmlPage("test."+p.testFile+AParsing.p.codeTest
+		HtmlPage th = new HtmlPage("test."+p.testFile // missing dependency --> +AParsing.p.codeTest
 				,code);//p.learner.name(),""); "test"
 		
 		//th.newTable("confusion matrix", mm);

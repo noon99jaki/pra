@@ -454,6 +454,9 @@ public class LearnerPRA extends Learner implements IFunction {
 				case Tri:
 					n = i * (i + 1) * (i + 2) / 6;
 					break;
+				case none:
+					n = vi.size();
+					break;
 				default:
 					FSystem.die(p.negative_mode + " not implemented");
 					break;
@@ -845,8 +848,11 @@ public class LearnerPRA extends Learner implements IFunction {
 			}
 		}
 		else {
-			Query query = new Query();
 			for (String line : FFile.enuLines(query_file)) {
+				// During predict, the query was not being completely reset.
+				// The seed of the query was not being cleared causing the scores
+				// to get larger even if it was the same query. To resolve, just recreate query.
+				Query query = new Query();
 				model_.walker_.parseQuery(line, query);
 				model_.predictQuery(query, prediction_writer, reason_writer);
 			}

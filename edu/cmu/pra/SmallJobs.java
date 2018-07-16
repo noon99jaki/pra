@@ -511,6 +511,12 @@ public class SmallJobs {
 	
 	public static void main(String args[]) {
 		Param.overwriteFrom("conf");
+		
+		// Added these two configurations into the conf file, since some datasets would require different values.
+		if (Param.ms.get("createQueries_max_relation_count")!=null)
+			createQueries_max_relation_count = Integer.parseInt(Param.ms.get("createQueries_max_relation_count"));
+		if (Param.ms.get("createQueries_min_relation_count") != null)
+			createQueries_min_relation_count = Integer.parseInt(Param.ms.get("createQueries_min_relation_count"));
 		String task = args[0];
 		if (task.equals("translateWeightNames")) translateWeightNames();
 		else if (task.equals("dump2PCTFormat")) dump2PCTFormat(args[1]);

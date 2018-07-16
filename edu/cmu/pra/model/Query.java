@@ -54,6 +54,9 @@ public class Query implements IGetIntByStr, Serializable, IGetStrByStr {
 		//clearStatistics();
 	}
 	public void clear(int num_fields) {
+		// When clearing a query, we should be clearing
+		// the seeds as well
+		seeds_.clear();
 		seeds_.reset(num_fields);
 		good_.clear();
 		clearFeatures();
