@@ -30,7 +30,7 @@ If you use this code or results in your research, and wish to cite as appropriat
 ```
 
 ## Instructions
-Compiled jar file can be found at http://www.cs.cmu.edu/~nlao/data/pra-src-20140421.jar
+Compiled jar file can be found at https://noon99jaki.github.io/code/2014.pra.zip
 Data files can be found under data/
 
 1. ### Produce edges file from a NELL knowledge dump 
