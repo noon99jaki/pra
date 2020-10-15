@@ -34,26 +34,27 @@ Compiled jar file can be found at https://noon99jaki.github.io/code/2014.pra.zip
 Data files can be found under data/
 
 1. ### Produce edges file from a NELL knowledge dump 
-arg1=NELL dump file
-arg2=probability threshold
-arg3=output format)
+Raw NELL file can be found on [NELL website](http://rtw.ml.cmu.edu/resources/runs/) or [a snapshot here](data/NELL.08m.165.zip)
 ```
+# arg1=NELL dump file
+# arg2=probability threshold
+# arg3=output format
 java -cp pra-src-20140421.jar edu.cmu.pra.data.WKnowledge createEdgeFile NELL.08m.165.cesv.csv 0.8 edges
 ```
 
 1. ### index edge file to a compact graph reprensentation 
-arg1=graph folder which contains *.edges
-arg2=edges/db)
 ```
+# arg1=graph folder which contains *.edges
+# arg2=edges/db
 java -cp pra-src-20140421.jar edu.cmu.pra.SmallJobs indexGraph ../graphs/NELL165/ edges
 ```
 
 1. ### create Queries 
-arg1=graph folder
-arg2=query folder
-arg3=whether its for training (boolean)
-arg4=whether adding the range of relation as part of the query (boolean)
 ```
+# arg1=graph folder
+# arg2=query folder
+# arg3=whether its for training (boolean)
+# arg4=whether adding the range of relation as part of the query (boolean)
 java -cp pra-src-20140421.jar edu.cmu.pra.SmallJobs createQueries ../graphs/NELL165/ ./queriesR_train/ true false
 ```
 
@@ -63,8 +64,8 @@ java -cp pra-src-20140421.jar edu.cmu.pra.LearnerPRA
 ```
 
 1. ### Train models (or do predictions) in batch mode.
-arg1=path to java class files
-arg2=text file containing a list of relation names
 ```
+# arg1=path to java class files
+# arg2=text file containing a list of relation names
 java -cp pra-src-20140421.jar edu.cmu.pra.SmallJobs batchLearnerPRA pra-src-20140421.jar selected_relations
 ```
